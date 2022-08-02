@@ -1,6 +1,0 @@
-venv/
-build/
-.git/
-dswizard.egg-info
-.idea/
-scripts/run/

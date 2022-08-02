@@ -1,0 +1,22 @@
+# .github/workflows/mirror.yml
+
+name: 'mirror'
+on:
+  push:
+    branches:
+        - __mirror
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    name: mirror
+    steps:
+      - name: mirror
+        id: mirror
+        uses: n14s/github-mirror-action@v1
+        with:
+          origin: "https://${{secrets.GITHUB_TOKEN}}@github.com/Ennosigaeon/dswizard.git"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
